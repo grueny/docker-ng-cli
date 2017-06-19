@@ -21,6 +21,9 @@ RUN set -xe \
     && mkdir -p $USER_HOME_DIR \
     && chown $USER_ID $USER_HOME_DIR \
     && chmod a+rw $USER_HOME_DIR \
+    && mkdir -p $APP_DIR \
+    && chown $USER_ID $APP_DIR \
+    && chmod a+rw $APP_DIR \
     && (cd "$USER_HOME_DIR"; npm install -g @angular/cli@$NG_CLI_VERSION; npm install -g yarn; npm cache clean)
 
 VOLUME "$USER_HOME_DIR/.cache/yarn"
